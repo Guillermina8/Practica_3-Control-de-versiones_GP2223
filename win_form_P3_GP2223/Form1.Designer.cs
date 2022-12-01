@@ -65,7 +65,7 @@
             this.label2.Location = new System.Drawing.Point(18, 176);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 16);
+            this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 2;
             this.label2.Text = "Coste:";
             // 

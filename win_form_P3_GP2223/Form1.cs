@@ -20,25 +20,21 @@ namespace win_form_P3_GP2223
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = ' ';
+            char tipoTelegrama = 'o';
             int numPalabras = 0;
             double coste;
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
+            numPalabras = cuentaPalabras(textoTelegrama);
             // telegrama urgente?
             if (cbUrgente.Checked)
                 tipoTelegrama = 'u';
-            //Obtengo el número de palabras que forma el telegrama
-            numPalabras = textoTelegrama.Length;
             //Si el telegrama es ordinario
-            if (cbOrdinario.Checked) { 
-            tipoTelegrama = 'o';
-
-            if (numPalabras <= 10)
-                coste = 25;
-            else
-                coste = 0.5 * numPalabras;
-            }
+            if (cbOrdinario.Checked)
+                if (numPalabras <= 10)
+                    coste = 2.5;
+                else
+                    coste =((numPalabras - 10) * 0.5) + 2.5;
             else
             //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
@@ -50,6 +46,18 @@ namespace win_form_P3_GP2223
                 coste = 0;
             txtPrecio.Text = coste.ToString() + " euros";
 
+        }
+        private int cuentaPalabras(string telegrama) 
+        {
+            int cont = 1;
+            for (int i = 1; i < telegrama.Length; i++)
+            {
+                if(telegrama[i] == ' ' && telegrama[i - 1] != ' ' ) 
+                {
+                    cont++;
+                }
+            }
+            return cont;
         }
     }
 }
