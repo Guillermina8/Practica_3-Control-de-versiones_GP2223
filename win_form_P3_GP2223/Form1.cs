@@ -31,11 +31,14 @@ namespace win_form_P3_GP2223
             //Obtengo el número de palabras que forma el telegrama
             numPalabras = textoTelegrama.Length;
             //Si el telegrama es ordinario
-            if (tipoTelegrama == 'o')
-                if (numPalabras <= 10)
-                    coste = 25;
-                else
-                    coste = 0.5 * numPalabras;
+            if (cbOrdinario.Checked) { 
+            tipoTelegrama = 'o';
+
+            if (numPalabras <= 10)
+                coste = 25;
+            else
+                coste = 0.5 * numPalabras;
+            }
             else
             //Si el telegrama es urgente
             if (tipoTelegrama == 'u')
